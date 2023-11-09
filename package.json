@@ -1,0 +1,28 @@
+{
+  "name": "kbr-validator",
+  "version": "0.0.11",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "npm run clean && npm run build:tsc && npm run build:js",
+    "build:tsc": "tsc",
+    "build:js": "node ./configs/build.js",
+    "clean": "node ./configs/rmdir.dist.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2"
+  }
+}
